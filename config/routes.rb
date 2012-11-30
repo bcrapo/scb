@@ -1,9 +1,17 @@
 Breadapp::Application.routes.draw do
   devise_for :users
+  
+  devise_scope :user do
+    get 'register-2005', :to => 'devise/registrations#new', as: :register
+    get 'sign-in', :to => 'devise/sessions#new', as: :signin
+    get 'log-out', :to => 'devise/sessions#destroy', as: :logout
+  end
 
   resources :statuses
 
   root to: 'statuses#index'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
