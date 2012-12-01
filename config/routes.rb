@@ -8,7 +8,7 @@ Breadapp::Application.routes.draw do
   end
 
   resources :statuses
-
+  get 'testimonials', to: 'statuses#index', as: :testimonials
   root to: 'statuses#index'
 
 
